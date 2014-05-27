@@ -1,0 +1,40 @@
+{
+
+    "comment":"set either targetThroughput to zero if the application performance metrix is responseTime and viceversa, and responseTime is in ms",
+    "totalcores": 10,
+    "classes": {
+        "1": [
+            {
+                "vm-rubis-0": {
+                    "targetThroughput": 100,
+					 "targetResponseTime": 0,
+                    "baseCapacity": 1,
+                    "capacity": 1,
+					"alpha": 80
+                }
+            }
+        ],
+        "2": [
+            {
+                "vm-rubis-1": {
+                    "targetThroughput": 80,
+					"targetResponseTime": 0,
+                    "baseCapacity": 1,
+                    "capacity": 1,
+					"alpha": 70
+                }
+            }
+        ],
+        "3": [
+            {
+                "vm-rubbos-0": {
+                    "targetThroughput": 50,
+					"targetResponseTime": 0,
+                    "baseCapacity": 1,
+                    "capacity": 1,
+					"alpha": 60
+                }
+            }
+        ]
+    }
+}
