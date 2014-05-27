@@ -96,13 +96,17 @@ bool processMessage(int s,
 	/* Store performance data */
 	
 	//double responseTime=std::max(std::min(atof(buf), 1.0), -1.0);//why is min????????
+	
 	const char *start = "start\0";
+	//queuelength=requestArrived-requestCompleted
+	//signals arrival of a request
 	if( strcmp(buf,start) == 0 )
 	{
 		//fprintf(stderr, "[%f] uppppppgot message from %s(%s): %s\n", now(), inet_ntoa(sin.sin_addr), vmName.c_str(), buf);
 		mgr.updateArrivalRate(vmName);
 	}
-	else{
+	else{//signals completion of a request
+		
 		//fprintf(stderr, "[%f] got message from %s(%s): %s\n", now(), inet_ntoa(sin.sin_addr), vmName.c_str(), buf);
 	double responseTime=atof(buf);// std::max(std::min(atof(buf), 1.0), -1.0);
 	vmToPerformance[vmName] = responseTime;
