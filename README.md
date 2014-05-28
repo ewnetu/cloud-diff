@@ -34,7 +34,7 @@ Boost C++ libraries 1.48
 
 [jsoncpp-src-0.5.0](http://sourceforge.net/projects/jsoncpp/)
 
-You need to configure initial setting under config.json file
+You need to configure about each service under config.json file
 
 To run non-strict service differentiation (more setting is possible if the default is not good enough):
 
