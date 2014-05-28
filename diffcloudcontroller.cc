@@ -193,7 +193,7 @@ void test()
 		app->print();
 }
 
-//UDP for collecting monitoring info
+//A thread listening and collecting monitoring info (it uses UDP socket)
 void* monitor(void*arg)
 {
 	/* Create UDP socket */
