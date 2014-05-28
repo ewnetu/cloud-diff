@@ -335,7 +335,7 @@ int main(int argc, char **argv)
 			 pthread_mutex_lock(&mutex);
 			mgr.resetMeasuredPerformance();
 			pthread_mutex_unlock(&mutex);
-			vmToPerformance.clear();
+			//vmToPerformance.clear();
 			lastControl = now();
 		}
 	}
