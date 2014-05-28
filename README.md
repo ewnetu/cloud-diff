@@ -1,6 +1,6 @@
 
 
-CLoud-Diff Resource Manager
+Cloud-Diff Resource Manager
 ==============================
 This project contains source code associated to the following article:
 
