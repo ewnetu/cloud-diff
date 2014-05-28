@@ -25,7 +25,7 @@ Optimizer::~Optimizer()
 	
 }
 
-//non-strict optimization
+//non-strict service differentiation
 void Optimizer::optimizeBasedOnRelativePenalty(PriorityManager* _obj,double controlInterval){
 	
 	
@@ -129,7 +129,7 @@ void Optimizer::optimizeBasedOnRelativePenalty(PriorityManager* _obj,double cont
 }
 
 
-//_____________________Strict optimization________________________________________________
+//_____________________Strict service differentiation________________________________________________
 void Optimizer::optimisePerPriority(PriorityClass* _obj,double controlInterval,double _capacityToDistribute)
 {
 	MP_model::getDefaultModel().setSolver(new OsiCbcSolverInterface);//OsiClpSolverInterface
