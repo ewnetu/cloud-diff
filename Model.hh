@@ -37,7 +37,7 @@ public:
 	//void setAverageResponseTime(double responseTime);
 	inline double getCapacity(){return capacity;};
 	inline double getPredictedArrivalRate(){return predictedArrivalRate;};
-	double estimateAlpha(double arrivalRate, double responseTime);
+	//double estimateAlpha(double arrivalRate, double responseTime);
 	///inline double getCapacity(){return capacity;};
 	void print();
     
