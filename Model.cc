@@ -139,38 +139,11 @@ double Model::estimateAlpha(double currentperformance)// this is rls implementat
 	//return alpha;
 //}
 
-//__________estimating alpha for  response time based on arrival rate (r=1/(alpha*c-lambda) ____________
-double Model::estimateAlpha(double arrivalRate, double responseTime)
-{
-/* https://en.wikipedia.org/wiki/Recursive_least_squares_filter#RLS_algorithm_summary */
-
-/* Rename variables for RLS */
-double x = -alpha/((alpha*capacity-arrivalRate)*(alpha*capacity-arrivalRate));
-
-double d = responseTime;
-double w = alpha; /* old value of alpha */
-
-/* RLS */
-double e, g;
-
-e = d -1/( capacity * w-arrivalRate);
- g = p * x / (lamda + x * p * x);
- p = (1.0 / lamda) * p - g * x * (1.0 / lamda) * p;
- w = w + e * g;
-
-/* Rename back */
-alpha = w;
-
-/* Return */
-return alpha;
-}
 
 ///__________estimating alpha for  response time(throughput+ 1/currentResponseTime)=alpha*capacity)____________
 double Model::estimateAlpha( double responseTime, double averageQueuelength)// this is rls implementation with forgetting factor
 {
-	//predictedArrivalRate=currentArrivalRate/controlInterval;
-	//return estimateAlpha( currentArrivalRate/controlInterval,  responseTime);
-	//double queueLength=fabsf(currentArrivalRate-currentThroughput);
+
 	double queueLength=averageQueuelength;
 	/* https://en.wikipedia.org/wiki/Recursive_least_squares_filter#RLS_algorithm_summary */
 	
@@ -192,57 +165,7 @@ double Model::estimateAlpha( double responseTime, double averageQueuelength)// t
 	
 	/* Return */
 	return alpha;
-	/*
-	//averageArrivalRate= (currentArrivalRate +averageArrivalRate*step)/(step+1);
-	//predictedArrivalRate=currentArrivalRate+(currentArrivalRate -averageArrivalRate)*regressionCofficient+errorValue;
-	//predictedArrivalRate=currentArrivalRate+averageArrivalRate*0.
-	//averageRT=(currentResponseTime+ averageRT*step)/(step+1);
-	 //averageRT=(1.0-0.01)*currentResponseTime+averageRT*0.01;
-	//currentResponseTime=averageRT;
-	//averageRT=currentResponseTime;
-	//step+=1;
 	
-	//throughput=currentThroughput;
-	//nonLinear.estimateParameters(capacity,currentThroughput,currentResponseTime);
-	//alpha=nonLinear.getAlpha();
-	//return alpha;
-	//if(currentThroughput==0)
-		//return alpha;// this indicates that the application is doing nothing-> thus no need to compute alpha 
-	//double deviation= ((targetThroughput-currentperformance)/targetThroughput)*100;
-	///if(abs(deviation)<threshold)
-	//return alpha; // no need to estimate alpha
-	//otherwise perform estimation
-	
-	//for(int i=0;i<100;i++)
-	//{// the gain vector at step n;
-	double k=(p*capacity)/(lamda+capacity*capacity*p);
-	//double arrivals=std::max(currentArrivalRate/controlInterval,currentThroughput/controlInterval);
-	//the estimation error at step n
-	//double error=(currentThroughput/controlInterval+ 1/(currentResponseTime))-alpha*capacity;
-	//double error=(arrivals+ 1/(currentResponseTime))-alpha*capacity;
-	//double error=(1/currentResponseTime)-alpha*capacity;
-		//double error= (fabsf(currentArrivalRate-currentThroughput)+1)/currentResponseTime-capacity*alpha;
-	double error= alpha*(fabsf(currentArrivalRate-currentThroughput)+1)/capacity-currentResponseTime;
-//	double error=((fabsf(currentArrivalRate/controlInterval-currentThroughput/controlInterval)+1)*alpha)/capacity-currentResponseTime;
-	//double error=(currentArrivalRate/controlInterval+ 1/(currentResponseTime))-alpha*capacity;;
-		//double error=(currentThroughput+ 1/currentResponseTime)-capacity/alpha;
-	//
-	//double error= 1/currentResponseTime-alpha*capacity;
-	//double error= currentResponseTime -alpha/capacity;
-	//double error=alpha*(currentThroughput+ 1/currentResponseTime)-capacity;
-	//estimated alpha at step n
-	//double error=(currentThroughput/(currentResponseTime))-alpha*capacity;
-	alpha=alpha+ k*error;
-	//update the inverse covariance 
-	p=(((1/lamda)*p)*(1 -k*capacity));  
-	//}
-	
-	//fprintf(stderr, "alpa:%f error:%f K:%f p:%f\n",  alpha, error, k,p);
-	return alpha;
-	//return alpha/(averageRT/targetResponseTime);
-	//return alpha/sqrt(currentResponseTime/targetResponseTime);
-	//return alpha/pow(currentResponseTime/targetResponseTime,1.0/10.0);
-	 */
 }
 
 
