@@ -4,7 +4,7 @@ Cloud-Diff Resource Manager
 ==============================
 This project contains source code associated to the following article:
 
-Ewnetu Bayuh Lakew, Cristian Klein, Francisco Hernandez-Rodriguez, and Erik Elmroth, "Performance-Based Service Differentiation in Clouds". 2014
+Ewnetu Bayuh Lakew, Cristian Klein, Francisco Hernandez-Rodriguez, and Erik Elmroth,Performance-Based Service Differentiation in Clouds, In Proceedings of the 15th IEEE/ACM International Symposium on Cluster, Cloud, and Grid Computing (CCGrid 2015), IEEE Computer Society, pp. 505-514, 2015.
 
 Abstract
 ==========
